@@ -56,11 +56,20 @@
                  <a href="/" class="mt-2 btn btn-primary">Reset</a>
                 <button href="/" class="mt-2 btn btn-primary" data-bs-toggle="collapse" data-bs-target="#table"
             aria-expanded="false" aria-controls="table">View Table</button>
-                <button href="/" class="mt-2 btn btn-primary" data-bs-toggle="collapse" data-bs-target="#graph"
+                <button href="/" class="mt-2 btn btn-primary" data-bs-toggle="collapse" data-bs-target="#vis"
             aria-expanded="false" aria-controls="graph">View Graph</button>
                 <div class="collapse mt-3 card-text table-responsive-sm" id="table"> {{ data.results|safe }} </div>
-                <div class=" collapse mt-3 card-text table-responsive-sm" id="graph"> graph div </div>
+                <div class=" collapse mt-3 card-text table-responsive-sm" id="vis">  test </div>
             </div>
+
+        <script type="text/javascript">
+              let spec = {{ chart|safe }};
+              vegaEmbed('#vis', spec).then(function(result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+              }).catch(console.error);
+        </script>
+
+        </div>
     {% endif %}
 
 {% endblock %}

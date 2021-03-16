@@ -1,0 +1,47 @@
+{
+  "config": {
+    "view": {
+      "continuousWidth": 400,
+      "continuousHeight": 300
+    }
+  },
+  "data": {
+    "name": "data-ac1652968de8225c659189b75003c93b"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "type": "nominal",
+      "field": "x"
+    },
+    "y": {
+      "type": "quantitative",
+      "field": "y"
+    }
+  },
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json",
+  "datasets": {
+    "data-ac1652968de8225c659189b75003c93b": [
+      {
+        "x": "A",
+        "y": 5
+      },
+      {
+        "x": "B",
+        "y": 6
+      },
+      {
+        "x": "C",
+        "y": 7
+      },
+      {
+        "x": "D",
+        "y": 8
+      },
+      {
+        "x": "E",
+        "y": 9
+      }
+    ]
+  }
+}
