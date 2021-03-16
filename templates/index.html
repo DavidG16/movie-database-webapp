@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if data is not defined %}
+<div class="nav nav-pills nav-fill" id="nav">
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#writeyourownquery-form"
+            aria-expanded="false" aria-controls="writeyourownquery-form">
+        Write your own Query
+    </button>
+    <button class="btn btn-primary" id="customizable-id" type="button" data-bs-toggle="collapse"
+            data-bs-target="#customizable-form"
+            aria-expanded="false" aria-controls="customizable-form">
+        Fast Insights
+    </button>
+
+    </div>
+
+    <form class="collapse" id="writeyourownquery-form" method="POST" action="/writeyourownquery">
+        {{ form_write_your_own_query.csrf_token }}
+        {{ form_write_your_own_query.sqlQuery(class_="form-control Required") }}
+        {{ form_write_your_own_query.submit(class_="btn btn-primary btn-md") }}
+    </form>
+
+    <form class="collapse" id="customizable-form" method="POST" action="/customizable">
+        <div class="row align-items-start">
+            {{ form_customizable.csrf_token }}
+            {{ form_customizable.sorting.label(class_="input-sm col gy-5 gx-5 form-label") }}
+            {{ form_customizable.sorting(class_="col gy-5 gx-5  form-select Required") }}
+            {{ form_customizable.limit(class_="col gy-5 gx-5  form-control Required") }}
+            {{ form_customizable.string_value.label(class_="col gy-5 gx-5 form-label") }}
+            {{ form_customizable.string_value(class_="col gy-5 gx-5  form-control d-none") }}
+            {{ form_customizable.query_type(class_="col  gy-5 gx-4 form-select Required") }}
+            {{ form_customizable.submit(class_=" gy-5 gx-5   btn btn-primary btn-md") }}
+        </div>
+
+
+    </form>
+    {% endif %}
+
+    {% if data is defined %}
+        <div class="card">
+            <h4 class="card-header">
+                Query in SQL format
+            </h4>
+            <div class="card-body">
+                <p class="card-text">{{ data.query }}</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h4 class="card-header">
+                Results
+            </h4>
+            <div class="card-body">
+                <h5 class="card-title">{{ string_q }}</h5>
+                 <a href="/" class="mt-2 btn btn-primary">Reset</a>
+                <button href="/" class="mt-2 btn btn-primary" data-bs-toggle="collapse" data-bs-target="#table"
+            aria-expanded="false" aria-controls="table">View Table</button>
+                <button href="/" class="mt-2 btn btn-primary" data-bs-toggle="collapse" data-bs-target="#graph"
+            aria-expanded="false" aria-controls="graph">View Graph</button>
+                <div class="collapse mt-3 card-text table-responsive-sm" id="table"> {{ data.results|safe }} </div>
+                <div class=" collapse mt-3 card-text table-responsive-sm" id="graph"> graph div </div>
+            </div>
+    {% endif %}
+
+{% endblock %}
+

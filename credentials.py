@@ -1,0 +1,1 @@
+pwd = open('/Users/dgrijalva/credentials/CRED.txt', 'r').readline().strip()
