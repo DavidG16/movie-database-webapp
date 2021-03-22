@@ -45,6 +45,7 @@ def handle_query(sql_query):
     if isinstance(results, list):
         results = pd.DataFrame.from_dict(results)
         #TODO: Add graphing function here
+
         data = {
             "query": sql_query,
             "results": results.to_html(index=False,

@@ -40,6 +40,7 @@ def customizable():
         sql_query = list_of_customizable_queries(sql_type, sql_sort, sql_limit, sql_string_value)
         data = handle_query(sql_query)
         string_q = query_string(sql_sort, sql_limit, sql_type, sql_string_value)
+
         df = pd.DataFrame({
             "x": ['A', 'B', 'C', 'D', 'E'],
             "y": [5, 6, 7, 8, 9]})
@@ -48,6 +49,7 @@ def customizable():
             y='y',
         )
         chart_json = chart.to_dict()
+
         print(chart_json)
         return render_template("index.html", data=data, form_write_your_own_query=form_write_your_own_query,
                                form_customizable=form_customizable, string_q=string_q, chart=chart_json)
