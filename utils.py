@@ -89,7 +89,7 @@ def handle_minimum_user_input_form(form):
 def list_of_customizable_queries(user_input,sql_sort, sql_limit, name):
     if user_input == "by gross revenue":
         return list_top_n_movies_by_gross_revenue(sql_sort, sql_limit)
-    if user_input == "billion dollar gross revenue":
+    if user_input == "with billion dollars gross revenue":
         return billion_dollar_movies(sql_sort, sql_limit)
     if user_input == "by profit loss":
         return list_of_movies_with_biggest_losses(sql_sort, sql_limit)
