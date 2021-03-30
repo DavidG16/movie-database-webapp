@@ -1,0 +1,48 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn{
+    margin-left:15px;
+}
+
+#main-container {
+    margin-top: 50px;
+
+}
+
+.fast-insight-form {
+    margin: 15px;
+
+}
+
+#customizable-form  {
+    margin: 50px;
+  }
+
+#writeyourownquery-form {
+    margin: 50px;
+  }
+
+.big {
+    font-size: 1.2rem;
+
+}
+
+.right-align-text{
+    text-align: right;
+
+}
+
+.center-align-text{
+    text-align: center;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+
+}
+
+.left-align{
+    text-align: left;
+}

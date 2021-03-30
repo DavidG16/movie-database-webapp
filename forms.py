@@ -6,7 +6,8 @@ from flask_wtf import FlaskForm
 class WriteYourOwnQuery(FlaskForm):
     sqlQuery = TextAreaField(label="Write SQL Query",
                              validators=[InputRequired()])
-    submit = SubmitField(label='Submit', id="submit-q-1")
+    submit = SubmitField(label='Search', id="submit-q-1")
+    submit = SubmitField(label='Search', id="submit-q-1")
 
 
 class MinimumUserInput(FlaskForm):
@@ -26,4 +27,4 @@ class MinimumUserInput(FlaskForm):
                           validators=[InputRequired(message="Error")], default="DESC", id="sorting")
 
     string_value = StringField(label="movies", id="string-val")
-    submit = SubmitField(label="Submit", id="submit-q-2")
+    submit = SubmitField(label="Search", id="submit-q-2")

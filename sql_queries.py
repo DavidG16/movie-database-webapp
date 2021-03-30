@@ -7,7 +7,7 @@ def list_top_n_movies_by_gross_revenue(sql_sort, sql_limit):
         Distributor 'Production House',
         Budget,
         Worldwide_BOC GrossCollections,
-        (Worldwide_BOC + (Budget/-1)) 'Profit/Loss'
+        CAST( CAST(Worldwide_BOC AS UNSIGNED) + (Budget/-1) AS SIGNED) 'Profit/Loss'
         FROM
         Movie
         ORDER BY GrossCollections {sql_sort}
@@ -41,7 +41,7 @@ def list_of_movies_with_biggest_losses(sql_sort, sql_limit):
         Distributor 'Production House',
         Budget,
         Worldwide_BOC AS 'Gross Collections',
-        ROUND((Worldwide_BOC + (Budget / - 1)), 0) AS 'Profit/Loss'
+        CAST( CAST(Worldwide_BOC AS UNSIGNED) + (Budget/-1) AS SIGNED) 'Profit/Loss'
         FROM
         Movie
         WHERE
@@ -57,7 +57,7 @@ def highest_rated_movies(sql_sort, sql_limit):
         Title,
         Year,
 	    Distributor 'Production House',
-        ROUND((Worldwide_BOC + (Budget / - 1)), 0) AS 'Profit/Loss',
+        CAST( CAST(Worldwide_BOC AS UNSIGNED) + (Budget/-1) AS SIGNED) 'Profit/Loss',
         user_rating Ratings
         FROM
         Movie

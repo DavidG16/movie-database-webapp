@@ -49,8 +49,7 @@ def customizable():
             y='y',
         )
         chart_json = chart.to_dict()
-
-        print(chart_json)
+        #print(chart_json)
         return render_template("index.html", data=data, form_write_your_own_query=form_write_your_own_query,
                                form_customizable=form_customizable, string_q=string_q, chart=chart_json)
 
